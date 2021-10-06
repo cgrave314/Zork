@@ -1,7 +1,10 @@
-﻿namespace Zork
+﻿using Newtonsoft.Json;
+
+namespace Zork
 {
-    class Room
+    public class Room
     {
+        [JsonProperty("NotName")]
         public string Name { get; }
 
         public string Description { get; set; }

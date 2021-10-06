@@ -2,6 +2,8 @@
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+
 
 namespace Zork
 {
@@ -17,7 +19,7 @@ namespace Zork
 
         static void Main(string[] args)
         {
-            const string roomDescriptionsFilename = "Rooms.txt";
+            const string roomDescriptionsFilename = "Rooms.json";
             InitializeRoomDescriptions(roomDescriptionsFilename);
 
             Console.WriteLine("Welcome to Zork!");
@@ -98,28 +100,10 @@ namespace Zork
         public static Commands ToCommand(string commandString) => Enum.TryParse(commandString, ignoreCase: true, out Commands result) ? result : Commands.UNKNOWN;
         private static void InitializeRoomDescriptions(string roomDescriptionsFilename)
         {
-            var roomMap = new Dictionary<string, Room>();
-            foreach (Room room in Rooms)
-            {
-                roomMap.Add(room.Name, room);
-                roomMap[room.Name] = room;
-            }
-
-            string[] lines = File.ReadAllLines(roomDescriptionsFilename);
-            foreach (string line in lines)
-            {
-                const string delimiter = "##";
-                const int expectedFieldCount = 2;
-
-                string[] fields = line.Split(delimiter);
-                Assert.IsTrue(fields.Length == expectedFieldCount, "Invalid record.");
-
-                (string name, string description) = (fields[(int)Fields.Name], fields[(int)Fields.Description]);
-                roomMap[name].Description = description;
-            }
+           Rooms = JsonConvert.DeserializeObject<Room[,]>(File.ReadAllText(roomDescriptionsFilename));
         }
 
-        private static readonly Room[,] Rooms =
+        private static Room[,] Rooms =
         {
             {new Room("Rocky Trail"), new Room("South of House"), new Room("Canyon View") },
             {new Room("Forest"), new Room("West of House"), new Room("Behind House") },
