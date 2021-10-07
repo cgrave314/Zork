@@ -44,13 +44,21 @@
 			"LookName": "Forest",
 			"Description": "This is a forest, with trees in all directions around you.",
 			"Neighbors": {
+				"South": "Forest 3",
+				"East": "West of House"
+			}
+		 },
+		 {
+			"Name": "Forest 2",
+			"Description": "This is a dimly lit forest, with large trees all around. One particularly large tree with some low branches stands here.",
+			"Neighbors": {
 				"South": "Clearing",
 				"East": "Clearing"
 			}
 		 },
 		 {
 			"Name": "Forest 3",
-			"Description": "This is a dimly lit forest, with large trees all around. One particularly large tree with some low branches stands here.",
+			"Description": "This is a dimly lit forest, with large trees all around. To the east, there appears to be sunlight.",
 			"Neighbors": {
 				"North": "South of House",
 				"East": "Clearing"
