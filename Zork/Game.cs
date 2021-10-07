@@ -7,7 +7,9 @@ namespace Zork
 {
     public class Game
     {
-        public World World { get; private set; }
+        public World World { get; set; }
+
+        public string StartingLocation { get; set; }
 
         [JsonIgnore]
         public Player Player { get; private set; }
@@ -23,7 +25,7 @@ namespace Zork
 
         public void Run()
         {
-
+            Player.Location = World.RoomsByName[StartingLocation];
             IsRunning = true;
             Room previousRoom = null;
             while (IsRunning)

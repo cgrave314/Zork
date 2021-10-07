@@ -10,26 +10,11 @@ namespace Zork
         public World World { get; }
 
         [JsonIgnore]
-        public Room Location { get; private set; }
-
-        [JsonIgnore]
-        public string LocationName
-        {
-            get
-            {
-                return Location?.Name;
-            }
-            set
-            {
-                Location = World?.RoomsByName.GetValueOrDefault(value);
-            }
-        }
-
+        public Room Location { get; set; }
 
         public Player(World world, string startingLocation)
         {
             World = world;
-            LocationName = startingLocation;
         }
 
         public bool Move(Directions direction)
