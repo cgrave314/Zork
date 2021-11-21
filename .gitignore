@@ -1,3 +1,11 @@
 .vs/
-Zork/bin/
-Zork/obj/
+*/bin
+*/obj
+**/Zork.Unity/Library
+**/Zork.Unity/Logs
+**/Zork.Unity/Temp
+**/Zork.Unity/UserSettings
+**/Zork.Unity/.vsconfig
+**/Zork.Unity/Assembly-CSharp.csproj
+**Zork.Unity/Zork.Unity.sln
+
