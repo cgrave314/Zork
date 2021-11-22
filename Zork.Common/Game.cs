@@ -53,14 +53,12 @@ namespace Zork.Common
 
         public static void StartGame(string jsonString, IInputService input, IOutputService output)
         {
-            //game = JsonConvert.DeserializeObject<Game>(jsonString);
             Instance = Load(jsonString);
             Instance.IsRunning = true;
             Instance.Input = input;
             Instance.Output = output;
             Instance.DisplayWelcomeMessage();
             Instance.Input.InputReceived += Instance.InputReceivedHandler;
-            //Instance.Run();
         }
         public static Game Load(string jsonString)
         {
@@ -74,21 +72,16 @@ namespace Zork.Common
             Commands command = Commands.UNKNOWN;
             Instance.Player.PreviousRoom = Instance.Player.CurrentRoom;
 
-            //Output.WriteLine(Instance.Player.CurrentRoom);
 
-            //Output.Write("\n> ");
             command = ToCommand(inputString.Trim());
 
-            //string outputString;
                 switch (command)
                 {
                     case Commands.QUIT:
-                        //outputString = Instance.ExitMessage;
                         Instance.IsRunning = false;
                         break;
 
                     case Commands.LOOK:
-                    //outputString = Instance.Player.CurrentRoom.Description;
                     Output.WriteLine(Instance.Player.CurrentRoom);
                     Output.WriteLine(Instance.Player.CurrentRoom.Description);
                     break;
@@ -98,17 +91,14 @@ namespace Zork.Common
                     case Commands.EAST:
                     case Commands.WEST:
                         Directions direction = (Directions)command;
-                    //outputString = Instance.Player.Move(direction) ? $"You moved {command}." : "The way is shut!";
                     Output.WriteLine(Instance.Player.Move(direction) ? $"You moved {command}." : "The way is shut!");
                         break;
 
                     default:
-                    //outputString = "Unknown command.";
                     Output.WriteLine("Unknown command.");
                         break;
                 }
 
-                //Output.WriteLine(outputString);
             if (Instance.Player.PreviousRoom != Instance.Player.CurrentRoom)
             {
                 Output.WriteLine(Instance.Player.CurrentRoom);

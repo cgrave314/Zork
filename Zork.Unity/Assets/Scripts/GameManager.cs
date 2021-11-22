@@ -21,13 +21,11 @@ public class GameManager : MonoBehaviour
         Game.Instance.Output.WriteLine(Game.Instance.Player.CurrentRoom);
         Game.Instance.Output.WriteLine(Game.Instance.Player.CurrentRoom.Description);
     }
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Game.Instance.IsRunning == false)
