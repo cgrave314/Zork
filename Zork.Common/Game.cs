@@ -84,8 +84,16 @@ namespace Zork.Common
                     case Commands.LOOK:
                     Output.WriteLine(Instance.Player.CurrentRoom);
                     Output.WriteLine(Instance.Player.CurrentRoom.Description);
-                    Instance.Player.AddScore(3);
                     break;
+
+                    case Commands.SCORE:
+                    Output.WriteLine(Instance.Player.Score);
+                    break;
+
+                    case Commands.REWARD:
+                    Instance.Player.AddScore(5);
+                    break;
+
 
                     case Commands.NORTH:
                     case Commands.SOUTH:
@@ -93,7 +101,6 @@ namespace Zork.Common
                     case Commands.WEST:
                         Directions direction = (Directions)command;
                     Output.WriteLine(Instance.Player.Move(direction) ? $"You moved {command}." : "The way is shut!");
-                    Instance.Player.AddScore(3);
                         break;
 
                     default:

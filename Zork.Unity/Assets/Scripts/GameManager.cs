@@ -16,6 +16,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI LocationText;
 
+    [SerializeField]
+    private TextMeshProUGUI ScoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI MovesText;
+
     void Awake()
     {
         TextAsset gameJsonAsset = Resources.Load<TextAsset>(ZorkGameFileAssetName);
@@ -28,12 +34,14 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        InputService.InputField.Select();
     }
 
     void Update()
     {
         LocationText.text = Game.Instance.Player.CurrentRoom.ToString();
+        ScoreText.text = $"Score: {Game.Instance.Player.Score}";
+        MovesText.text = $"Moves: {Game.Instance.Player.MovesCount}";
 
         if(Game.Instance.IsRunning == false)
         {

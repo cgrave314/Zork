@@ -266,6 +266,8 @@ MonoBehaviour:
   InputService: {fileID: 326055179}
   OutputService: {fileID: 326055178}
   LocationText: {fileID: 1262679893}
+  ScoreText: {fileID: 1220572436}
+  MovesText: {fileID: 906515817}
 --- !u!4 &326055177
 Transform:
   m_ObjectHideFlags: 0
@@ -1403,7 +1405,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1251227165}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9998261
+  m_Size: 0.999574
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1480,7 +1482,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.5519, y: -281.0892}
+  m_AnchoredPosition: {x: 12.5519, y: -281.08997}
   m_SizeDelta: {x: -12.5519, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1793792022
