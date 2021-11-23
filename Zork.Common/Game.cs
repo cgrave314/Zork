@@ -87,7 +87,7 @@ namespace Zork.Common
                     break;
 
                     case Commands.SCORE:
-                    Output.WriteLine(Instance.Player.Score);
+                    Output.WriteLine($"Score: {Player.Score}");
                     break;
 
                     case Commands.REWARD:
