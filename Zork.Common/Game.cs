@@ -72,7 +72,7 @@ namespace Zork.Common
             Commands command = Commands.UNKNOWN;
             Instance.Player.PreviousRoom = Instance.Player.CurrentRoom;
 
-
+            Instance.Player.IncreaseMovesCount();
             command = ToCommand(inputString.Trim());
 
                 switch (command)
@@ -84,6 +84,7 @@ namespace Zork.Common
                     case Commands.LOOK:
                     Output.WriteLine(Instance.Player.CurrentRoom);
                     Output.WriteLine(Instance.Player.CurrentRoom.Description);
+                    Instance.Player.AddScore(3);
                     break;
 
                     case Commands.NORTH:
@@ -92,6 +93,7 @@ namespace Zork.Common
                     case Commands.WEST:
                         Directions direction = (Directions)command;
                     Output.WriteLine(Instance.Player.Move(direction) ? $"You moved {command}." : "The way is shut!");
+                    Instance.Player.AddScore(3);
                         break;
 
                     default:

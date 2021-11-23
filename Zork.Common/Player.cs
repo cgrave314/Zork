@@ -15,19 +15,24 @@ namespace Zork.Common
         [JsonIgnore]
         public Room PreviousRoom { get; set; }
 
+        [JsonIgnore]
+        public int Score { get; private set; }
+
+        [JsonIgnore]
+        public int MovesCount { get; private set; }
+
 
         public Player(World world, string startingLocation)
         {
-
+            Score = 0;
+            MovesCount = 0;
             World = world;
             CurrentRoom = World.RoomsByName[startingLocation];
-
         }
 
 
         public bool Move(Directions direction)
         {
-
             bool isValidMove = CurrentRoom.Neighbors.TryGetValue(direction, out Room neighbor);
             if(isValidMove)
             {
@@ -36,6 +41,16 @@ namespace Zork.Common
 
             return isValidMove;
 
+        }
+
+        public void IncreaseMovesCount()
+        {
+            MovesCount += 1;
+        }
+
+        public void AddScore(int increaseScore)
+        {
+            Score += increaseScore;
         }
     }
 }
