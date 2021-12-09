@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         LocationText.text = Game.Instance.Player.CurrentRoom.ToString();
         ScoreText.text = $"Score: {Game.Instance.Player.Score}";
         MovesText.text = $"Moves: {Game.Instance.Player.MovesCount}";
+        
 
         if(Game.Instance.IsRunning == false)
         {
